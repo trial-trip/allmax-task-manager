@@ -8,19 +8,20 @@ const Task = ({ id, title, description, priority, deadline, completionDate}) => 
 
       <span className={styles.title}>{title}</span>
 
-      {deadline && (<span className={styles.deadline}>Deadline: {deadline}</span>)}
-      {completionDate && (<span className={styles.completionDate}>Completed: {completionDate}</span>)}
-      <span className={styles.completionDate}>id: {id}</span>
-      <span className={styles.completionDate}>priority: {priority}</span>
+      {deadline && (<span className={styles.deadline}>Deadline:&nbsp;{deadline}</span>)}
+      {completionDate && (<span className={styles.completionDate}>Completed:&nbsp;{completionDate}</span>)}
+      <span className={styles.completionDate}>id:&nbsp;{id}</span>
+      <span className={styles.completionDate}>priority:&nbsp;{priority}</span>
 
       {!completionDate && (<span className={styles.priority}>
         <a className={(priority === 0) ? styles.ordinary : ''}>Ordinary</a>
         <a className={(priority === 1) ? styles.important : ''}>Important</a>
-        <a className={(priority === 2) ? styles.veryImportant : ''}>Very important</a>
+        <a className={(priority === 2) ? styles.veryImportant : ''}>Very&nbsp;important</a>
       </span>)}
 
     </div>
-    {description && (<p className={styles.description}>{description}</p>)}
+    {description && 
+      description.split('\n').map((line, i) => (<p key={i} className={styles.description}>{line}</p>))}
   </div>
 )
 
