@@ -1,0 +1,37 @@
+.app {
+  font-family: Helvetica, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 4em;
+  margin-bottom: .5em;
+}
+
+::selection { 
+  color: #111;
+  background: rgba(255, 225, 0, 0.71);
+  text-shadow: none;
+}
+
+.credits {
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+.credits > * + * {
+  margin-left: 1em;
+}
+
+.app-name {
+  color: #000;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.author {
+  color: rgb(133, 133, 133);
+  font-size: .8em;
+}

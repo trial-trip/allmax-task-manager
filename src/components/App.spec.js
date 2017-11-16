@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() })
 
 test('Should contain header', t => {
   const wrapper = shallow(<App />)
-  t.is(wrapper.text().includes('Your tasks'), true)
+  t.is(wrapper.text().includes('Tasks'), true)
 })
 
 test('Should contain application name', t => {
