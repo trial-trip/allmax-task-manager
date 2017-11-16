@@ -1,0 +1,12 @@
+.filter-links > * + * {
+  margin-left: 1em;
+}
+
+.filters {
+  padding-top: .7em;
+  padding-bottom: .7em;
+}
+
+.search {
+  margin-left: 1em;
+}
