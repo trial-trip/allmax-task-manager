@@ -1,11 +1,11 @@
 import test from 'ava'
 import React from 'react'
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
 import Task from './Task'
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() })
 
 test('Should have title', t => {
   const wrapper = shallow(<Task />)

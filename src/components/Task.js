@@ -10,6 +10,6 @@ const Task = () => (
   </div>
 )
 
-Task.propTypes = {};
+Task.propTypes = {}
 
 export default Task

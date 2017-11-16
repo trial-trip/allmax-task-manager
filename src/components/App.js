@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Task from './Task'
+import TaskList from './TaskList'
 
 const App = () => (
   <div>
@@ -13,16 +13,11 @@ const App = () => (
         <li>Search: _</li>
       </ul>
     </div>
-    <div>
-      <Task/>
-      <Task />
-      <Task />
-      <Task />
-    </div>
+    <TaskList/>
     <div><p>Allmax Task Manager, Vladimir Logachev</p></div>
   </div>
 )
 
-App.propTypes = {};
+App.propTypes = {}
 
 export default App
