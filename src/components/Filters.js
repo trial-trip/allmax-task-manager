@@ -12,4 +12,3 @@ const Filters = () => (
 Filters.propTypes = {}
 
 export default Filters
-
