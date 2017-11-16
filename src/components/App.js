@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Task from './Task'
+
 const App = () => (
   <div>
     <div>
@@ -12,29 +14,15 @@ const App = () => (
       </ul>
     </div>
     <div>
-      <ul>
-        <li>
-          <h3>title: sample task</h3>
-          <p>description: do something</p>
-          <p>priority: 1</p>
-          <p>deadline: 14.11.2017</p>
-          <p>completion date: 12.11.2017</p>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ul>
-        <li>
-          <h3>title: sample task</h3>
-          <p>description: do something</p>
-          <p>priority: 1</p>
-          <p>deadline: 14.11.2017</p>
-          <p>completion date: 12.11.2017</p>
-        </li>
-      </ul>
+      <Task/>
+      <Task />
+      <Task />
+      <Task />
     </div>
     <div><p>Allmax Task Manager, Vladimir Logachev</p></div>
   </div>
 )
+
+App.propTypes = {};
 
 export default App
