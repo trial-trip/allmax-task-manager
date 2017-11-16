@@ -1,15 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Task = () => (
+const Task = ({ id, title, description, priority, deadline, completionDate}) => (
   <div className="task task-not-completed">
-    <h3 className="task-title">sample task</h3>
-    <p className="task-description">do something</p>
-    <p className="task-priority">1</p>
-    <p className="task-deadline">14.11.2017</p>
-    <p className="task-completion-date">12.11.2017</p>
+    <h3 className="task-title">{title} (task #{id})</h3>
+    <p className="task-description">{description}</p>
+    <p className="task-priority">{priority}</p>
+    <p className="task-deadline">{deadline}</p>
+    <p className="task-completion-date">{completionDate}</p>
   </div>
 )
 
-Task.propTypes = {}
+Task.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  priority: PropTypes.number.isRequired,
+  deadline: PropTypes.string,
+  completionDate: PropTypes.string,
+}
 
 export default Task
