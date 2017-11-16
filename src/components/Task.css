@@ -3,7 +3,13 @@
   background-color: #fbfbfb;
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 1em 1em 0 1em;
+  padding: 1em 1em 1em 1em;
+  transition: background-color .3s ease;
+}
+
+.task:hover {
+  background-color: rgba(14, 127, 131, 0.05);
+  transition: background-color .3s ease;
 }
 
 .task + .task {
@@ -16,7 +22,7 @@
 }
 
 .deadline {
-  color: rgb(133, 133, 133);
+  color: rgb(26, 26, 26);
   font-size: .8em;
 }
 
@@ -43,4 +49,38 @@
 
 .failed {
   color: rgb(79, 18, 0);
+}
+
+.priority {
+  color: rgb(133, 133, 133);
+  font-size: .8em;
+}
+
+.priority > * {
+  padding: .3em .4em;
+  border-radius: 2px;
+  transition: color .3s ease;
+  color: rgba(17, 17, 17, 0.5)
+}
+
+.priority > *:hover {
+  transition: color .3s ease;
+  color: rgba(17, 17, 17, 1)
+}
+
+.ordinary {
+  background-color: rgba(0, 251, 255, 0.5);
+}
+
+.important {
+  background-color: rgba(255, 234, 0, 0.5);
+}
+
+.very-important {
+  background-color: rgba(255, 132, 0, 0.5);
+}
+
+.ordinary, .important, .very-important {
+  font-weight: 600;
+  color: #111;
 }
