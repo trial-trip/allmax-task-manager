@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new HtmlWebpackPlugin({
-      title: 'Allmax task manager'
+      title: 'Allmax Task Manager'
     })
   ],
   module: {
