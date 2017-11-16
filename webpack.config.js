@@ -26,7 +26,17 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          'style-loader'
+          'style-loader',
+          {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              camelCase: true,
+              importLoaders: 1,
+              sourceMap: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            }
+          }
         ]
       },
     ]

@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './Task.css'
 
 const Task = ({ id, title, description, priority, deadline, completionDate}) => (
-  <div className="task task-not-completed">
-    <h3 className="task-title">{title} (task #{id})</h3>
-    <p className="task-description">{description}</p>
-    <p className="task-priority">{priority}</p>
-    <p className="task-deadline">{deadline}</p>
-    <p className="task-completion-date">{completionDate}</p>
+  <div className={`${styles.task} ${completionDate ? styles.completed : ''}`}>
+    <div className={styles.meta}>
+      <span className={styles.title}>{title} #{id} [{priority}]</span>
+      <span className={styles.deadline}>Deadline: {deadline}</span>
+      <span className={styles.completionDate}>Completed on:{completionDate}</span>
+    </div>
+    <p className={styles.description}>{description}</p>
   </div>
 )
 

@@ -1,0 +1,46 @@
+.task {
+  color: #111;
+  background-color: #fbfbfb;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 1em 1em 0 1em;
+}
+
+.task + .task {
+  margin-top: .5em;
+}
+
+.title {
+  color: rgb(0, 71, 79);
+  font-weight: 600;
+}
+
+.deadline {
+  color: rgb(133, 133, 133);
+  font-size: .8em;
+}
+
+.completion-date {
+  color: rgb(133, 133, 133);
+  font-size: .8em;
+}
+
+.meta > * + * {
+  margin-left: 1em;
+}
+
+.description {
+  color: rgb(14, 127, 131);
+}
+
+.completed {
+  opacity: .5;
+}
+
+.completed * {
+  color: rgb(100, 100, 100);
+}
+
+.failed {
+  color: rgb(79, 18, 0);
+}

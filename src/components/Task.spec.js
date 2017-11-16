@@ -7,32 +7,43 @@ import Task from './Task'
 
 configure({ adapter: new Adapter() })
 
-test('Should have title', t => {
-  const wrapper = shallow(<Task />)
-  t.not(wrapper.find('.task-title').length, 0)
+const demoTask = {
+  id: 0,
+  title: 'Run 10 km',
+  description: 'That will make you glad\n\n...\nMaybe))',
+  priority: 1,
+  deadline: '14.11.2017',
+  completionDate: '12.11.2017'
+}
+
+test('Should show title and description', t => {
+  const wrapper = shallow(<Task {...demoTask} />)
+  t.is(wrapper.html().includes(demoTask.title), true)
+  t.is(wrapper.html().includes(demoTask.description), true)
 })
 
-test('Should have some completion status', t => {
-  const wrapper = shallow(<Task />)
-  t.not(wrapper.find('.task-completed').length + wrapper.find('.task-not-completed').length, 0)
+test('Should show completion date, if was set', t => {
+  const wrapper = shallow(<Task {...demoTask} />)
+  t.is(wrapper.html().includes(demoTask.completionDate), true)
+})
+
+test('Should show deadline, if was set', t => {
+  const wrapper = shallow(<Task {...demoTask} />)
+  t.is(wrapper.html().includes(demoTask.deadline), true)
 })
 
 test.skip('Should be marked as completed if completion date was set', t => {
-  //
+  // check nested elements later
+  const wrapper = shallow(<Task {...demoTask} />)
+  t.is(wrapper.html().includes(demoTask.completionDate), true)
 })
 
-test.skip('Should be marked as not-completed if completion date was not set', t => {
-  //
-})
-
-test.skip('Should have description if was set', t => {
-  //
-})
-
-test.skip('Should have deadline if was set', t => {
-  //
+test.skip('Should not be marked as completed if completion date was not set', t => {
+  // check nested elements later
+  const wrapper = shallow(<Task {...demoTask} />)
+  t.is(wrapper.html().includes(demoTask.completionDate), true)
 })
 
 test.skip('Should display correct priority', t => {
-  //
+  // check nested elements later
 })
