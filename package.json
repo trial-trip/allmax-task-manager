@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "test": "ava --watch"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,7 @@
   "author": "Logachev",
   "license": "MIT",
   "dependencies": {
+    "@ava/babel-preset-stage-4": "^1.1.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -25,6 +27,29 @@
     "react-dom": "^16.1.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
+  },
+    "devDependencies": {
+      "ava": "^0.23.0",
+      "enzyme": "^3.2.0",
+      "enzyme-adapter-react-16": "^1.1.0",
+      "react-addons-test-utils": "^15.6.2"
+    },
+  "ava": {
+    "files": [
+      "src/**/*.spec.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "require": "babel-register",
+    "babel": "inherit"
+  },
+  "babel": {
+    "presets": [
+      "@ava/stage-4",
+      "env",
+      "react"
+    ]
   },
   "bugs": {
     "url": "https://github.com/VladimirLogachev/allmax-task-manager/issues"
