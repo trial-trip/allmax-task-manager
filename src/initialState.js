@@ -24,8 +24,8 @@ const stateDemo = {
     .map((item, i) => ({ ...item, id: i }))
     .map((item, i) => ((randomBool()) ? { ...item, completionDate: '' } : item))
     .map((item, i) => ((randomBool()) ? { ...item, deadline: '' } : item))
+    .map((item, i) => ((randomBool()) ? { ...item, description: '' } : item))
     .map((item, i) => ({ ...item, priority: randomPriority() }))
-    
 }
 
 const initialState = stateOption || stateDemo
