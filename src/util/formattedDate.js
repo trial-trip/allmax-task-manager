@@ -1,5 +1,5 @@
+// accepts an ISO string and returns dd.mm.yyyy
 const formattedDate = (dateIsoString) => {
-  // accepts an ISO string and returns dd.mm.yyyy
   const tempDate = new Date(Date.parse(dateIsoString))
   let dd = tempDate.getDate()
   if (dd < 10) {
@@ -13,7 +13,8 @@ const formattedDate = (dateIsoString) => {
   if (yyyy < 10) {
     yyyy = '0' + yyyy
   }
-  return dd + '.' + mm + '.' + yyyy
+  const answer = (dd + mm + yyyy) ? (dd + '.' + mm + '.' + yyyy) : ''
+  return answer
 }
 
 export default formattedDate
