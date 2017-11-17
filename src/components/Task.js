@@ -15,14 +15,16 @@ const Task = ({ id, title, description, priority, deadline, completionDate}) => 
       <span className={styles.completionDate}>priority:&nbsp;{priority}</span>
 
       {!completionDate && (<span className={styles.priority}>
-        <a className={(priority === 0) ? styles.ordinary : ''}>Ordinary</a>
-        <a className={(priority === 1) ? styles.important : ''}>Important</a>
         <a className={(priority === 2) ? styles.veryImportant : ''}>Very&nbsp;important</a>
+        <a className={(priority === 1) ? styles.important : ''}>Important</a>
+        <a className={(priority === 0) ? styles.ordinary : ''}>Ordinary</a>
       </span>)}
 
     </div>
+    <div className={styles.description}>
     {description && 
-      description.split('\n').map((line, i) => (<p key={i} className={styles.description}>{line}</p>))}
+      description.split('\n').map((line, i) => (<p key={i}>{line}</p>))}
+    </div>
   </div>
 )
 
