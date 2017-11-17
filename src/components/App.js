@@ -11,7 +11,7 @@ const App = (state) => (
     <Filters/>
     <TaskList {...state}/>
     <div className={styles.credits}>
-      <span class={styles.appName}>Allmax Task Manager</span>
+      <span className={styles.appName}>Allmax Task Manager</span>
       <span className={styles.author}>by Vladimir Logachev</span>
     </div>
   </div>
