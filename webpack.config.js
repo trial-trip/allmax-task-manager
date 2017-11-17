@@ -1,21 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
-  output: [{
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/'
-  }, {
-      path: path.join(__dirname, 'docs'),
-      filename: 'bundle.js',
-      publicPath: './'
-    }],
   plugins: [
-    new CleanWebpackPlugin(['build','docs']),
     new HtmlWebpackPlugin({
       title: 'Allmax Task Manager'
     })
