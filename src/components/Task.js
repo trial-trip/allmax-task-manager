@@ -3,47 +3,51 @@ import PropTypes from 'prop-types'
 import styles from './Task.css'
 import formattedDate from './../util/formattedDate'
 
-const Task = ({ onClick, id, title, description, priority, deadline, completionDate}) => {
+const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
   const completed = (completionDate) ? true : false
   const failed = (deadline) ? (completed ? (Date.parse(completionDate) > Date.parse(deadline)) : (Date.now() > Date.parse(deadline))) : false
 
-  const completedStyle = completionDate ? styles.completed : ''
-  const failedStyle = (!completed && failed) ? styles.failed : ''
-  const taskStyle = `${styles.task} ${completedStyle} ${failedStyle}`
+  const completionStyle = completionDate ? styles.completed : ''
+  let priorityStyle
+  if (!completed && priority === 1) { priorityStyle = styles.important}
+  if (!completed && priority === 2) { priorityStyle = styles.veryImportant}
+  if (!completed && failed) {priorityStyle = styles.failed}
+  
+  const taskStyle = `${styles.task} ${completionStyle} ${priorityStyle}`
 
-  const failedLabel = failed ? <span className={styles.failedLabel}>Deadline failed</span> : ''
+  const failedLabel = failed ? <span className={styles.failedLabel}>Violation of the deadline</span> : ''
 
   return(
     <div className={taskStyle}>
-
-      <div className={styles.title} onClick={onClick}>
-        <span>{title}</span>
+      <div className={styles.title} >
+        <span>{id}</span>
+        {failedLabel}
       </div>
-
-      <div className={styles.meta}>
-        <span className={styles.priority}>
-          {failedLabel}
-          {!completed && (<a className={(priority === 2) ? styles.veryImportant : ''}>Very important</a>)} 
-          {!completed && (<a className={(priority === 1) ? styles.important : ''}>Important</a>)} 
-          {!completed && (<a className={(priority === 0) ? styles.ordinary : ''}>Ordinary</a>)} 
-        </span>
-      </div>  
 
       <div className={styles.description}>
         {description && description.split('\n').map((line, i) => (<p key={i}>{line}</p>))}
       </div>
 
       <div className={styles.meta}>
-        {deadline && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)} </span>)}
+        {deadline && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)}</span>)}
         {completed && (<span className={styles.completionDate}>Completed: {formattedDate(completionDate)}</span>)}
       </div>
+
+      <div className={styles.meta}>
+        <span className={styles.buttons}>
+          <a className={styles.ordinary} onClick={onToggleCompleted}>{completed ? 'Work some more' : 'Done'}</a>
+          {!completed ? (<a className={styles.ordinary}>Edit</a>) : ''}
+          <a className={styles.ordinary} onClick={onDeleteClick}>Delete</a>
+        </span>
+      </div> 
 
     </div>
   )
 }
 
 Task.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onToggleCompleted: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,

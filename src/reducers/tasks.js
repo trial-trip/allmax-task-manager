@@ -1,5 +1,5 @@
 const tasks = (state = [], action) => {
-  console.log(state, action.type)
+  console.log(state, action.type, action.id)
   switch (action.type) {
     case 'ADD_TASK':
       return [
@@ -22,6 +22,8 @@ const tasks = (state = [], action) => {
           }
           : task
       )
+    case 'DELETE_TASK':
+      return state.filter(task =>(task.id !== action.id))
     default:
       return state
   }

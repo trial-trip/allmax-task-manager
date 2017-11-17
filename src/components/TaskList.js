@@ -4,22 +4,22 @@ import styles from './TaskList.css'
 
 import Task from './Task'
 
-
-
-const TaskList = ({ tasks, onTaskClick}) => {
+const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
   const placeholder = (
     <div className={styles.placeholder}>
       <p>No tasks yet, let's write some!</p>
       <p className={styles.smile}>\ (•◡•) /</p>
     </div>
   )
+  const listOfTasks = tasks.map((task, i) => (
+    <Task key={i} {...task} 
+      onToggleCompleted={() => onTaskClick(task.id)}
+      onDeleteClick={() => onTaskDelete(task.id)}
+      />
+  ))
   return (
   <div>
-    {
-      (tasks.length) 
-        ? tasks.map((task, i) => (<Task key={i} {...task} onClick={() => onTaskClick(i)}/>)) 
-        : placeholder
-    }
+    { tasks.length ? listOfTasks : placeholder }
   </div>
 )}
 
@@ -34,7 +34,8 @@ TaskList.propTypes = {
       completionDate: PropTypes.string,
     })
   ).isRequired,
-  onTaskClick: PropTypes.func.isRequired
+  onTaskClick: PropTypes.func.isRequired,
+  onTaskDelete: PropTypes.func.isRequired,
 }
 
 export default TaskList

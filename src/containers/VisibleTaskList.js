@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTask } from '../actions'
+import { toggleTask, deleteTask } from '../actions'
 import TaskList from '../components/TaskList'
 
 const getVisibleTasks = (tasks, filter) => {
@@ -25,6 +25,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onTaskClick: id => {
       dispatch(toggleTask(id))
+    },
+    onTaskDelete: id => {
+      dispatch(deleteTask(id))
     }
   }
 }

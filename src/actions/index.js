@@ -6,3 +6,12 @@ export const toggleTask = id => {
     completionDate: d.toISOString()
   }
 }
+
+export const deleteTask = id => {
+  console.log('DELETE_TASK', id)
+  return {
+    type: 'DELETE_TASK',
+    id
+  }
+}
+
