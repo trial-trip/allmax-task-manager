@@ -3,30 +3,45 @@ import PropTypes from 'prop-types'
 import styles from './Task.css'
 import formattedDate from './../util/formattedDate'
 
-const Task = ({ id, title, description, priority, deadline, completionDate}) => (
-  <div className={`${styles.task} ${completionDate ? styles.completed : ''}`}>
-    <div className={styles.meta}>
+const Task = ({ id, title, description, priority, deadline, completionDate}) => {
+  const completed = (completionDate) ? true : false
+  const failed = (deadline) ? (completed ? (Date.parse(completionDate) > Date.parse(deadline)) : (Date.now() > Date.parse(deadline))) : false
 
-      <span className={styles.title}>{title}</span>
+  const completedStyle = completionDate ? styles.completed : ''
+  const failedStyle = (!completed && failed) ? styles.failed : ''
+  const taskStyle = `${styles.task} ${completedStyle} ${failedStyle}`
 
-      {deadline && (<span className={styles.deadline}>Deadline:&nbsp;{formattedDate(deadline)}</span>)}
-      {completionDate && (<span className={styles.completionDate}>Completed:&nbsp;{formattedDate(completionDate)}</span>)}
-      <span className={styles.completionDate}>id:&nbsp;{id}</span>
-      <span className={styles.completionDate}>priority:&nbsp;{priority}</span>
+  const failedLabel = failed ? <span className={styles.failedLabel}>Deadline failed</span> : ''
 
-      {!completionDate && (<span className={styles.priority}>
-        <a className={(priority === 2) ? styles.veryImportant : ''}>Very&nbsp;important</a>
-        <a className={(priority === 1) ? styles.important : ''}>Important</a>
-        <a className={(priority === 0) ? styles.ordinary : ''}>Ordinary</a>
-      </span>)}
+  return(
+    <div className={taskStyle}>
+
+      <div className={styles.title}>
+        <span>{title}</span>
+      </div>
+
+      <div className={styles.meta}>
+        <span className={styles.priority}>
+          {failedLabel}
+          <a className={(!completionDate && priority === 2) ? styles.veryImportant : ''}>Very important</a>
+          <a className={(!completionDate && priority === 1) ? styles.important : ''}>Important</a>
+          <a className={(!completionDate && priority === 0) ? styles.ordinary : ''}>Ordinary</a>
+        </span>
+      </div>
+
+      <div className={styles.description}>
+        {description && description.split('\n').map((line, i) => (<p key={i}>{line}</p>))}
+      </div>
+
+      <div className={styles.meta}>
+        {deadline && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)} </span>)}
+        {completed && (<span className={styles.completionDate}>Completed: {formattedDate(completionDate)}</span>)}
+        <span className={styles.completionDate}>id:{id}</span>
+      </div>
 
     </div>
-    <div className={styles.description}>
-    {description && 
-      description.split('\n').map((line, i) => (<p key={i}>{line}</p>))}
-    </div>
-  </div>
-)
+  )
+}
 
 Task.propTypes = {
   id: PropTypes.number.isRequired,

@@ -1,33 +1,31 @@
 .task {
-  color: #111;
-  background-color: #fbfbfb;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 1em 1em 1em 1em;
-  transition: background-color .3s ease;
+  padding: .3em 1em .3em 1em;
+  border-left: 3px solid rgba(0, 188, 212, 0.64);
 }
 
 .task + .task {
-  margin-top: .5em;
+  margin-top: 1em;
 }
 
 .title {
   color: #000;
   font-weight: 600;
+  margin-bottom: .7em;
 }
 
 .deadline {
-  color: rgb(26, 26, 26);
+  color: rgba(0, 0, 0, 0.892);
   font-size: .8em;
 }
 
 .completion-date {
-  color: rgb(133, 133, 133);
+  color: rgba(0, 0, 0, 0.234);
   font-size: .8em;
 }
 
 .meta {
-  padding-bottom: .7em;
+  margin-bottom: .5em;
+  margin-top: .5em;
 }
 
 .meta > * + * {
@@ -37,22 +35,20 @@
 .description {
   color: rgba(0, 0, 0, 0.75);
   line-height: 1.3;
+  margin-top: 1em;
 }
 
 .completed {
-  opacity: .5;
+  opacity: .6;
+  border-color: #777777;
 }
 
 .completed * {
-  color: rgb(100, 100, 100);
-}
-
-.failed {
-  color: rgb(79, 18, 0);
+  color: rgba(0, 0, 0, 0.342);
 }
 
 .priority {
-  color: rgb(133, 133, 133);
+  color: rgba(41, 29, 29, 0.529);
   font-size: .8em;
 }
 
@@ -65,13 +61,13 @@
   border-radius: 2px;
   border: 1px solid transparent;
   transition: color .3s ease, background-color .3s ease;
-  color: rgba(17, 17, 17, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .priority > *:hover { /* оставить только для неактивного */
   transition: color .3s ease, background-color .3s ease;
-  color: rgba(17, 17, 17, 1);
+  color: rgb(0, 0, 0);
   background-color: rgba(0, 188, 212, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -91,4 +87,13 @@
 .ordinary, .important, .very-important {
   color: #111;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.failed {
+  border-color: #ff2222;
+}
+.failed-label {
+  background-color: #000;
+  color: #fff;
+  border-radius: 2px;
 }
