@@ -7,10 +7,23 @@ import reset from './reset.css'
 import App from './components/App'
 import initialState from './initialState'
 
+// redux 
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducers from './reducers'
+
+const store = createStore(reducers, initialState)
+
+store.subscribe((x) => {
+  localStorage.setItem('tm_data', JSON.stringify(store.getState()));
+})
+
 const rootElement = document.createElement("div")
 document.body.appendChild(rootElement)
 
 render(
-  <App {...initialState} className={reset}/>,
+    <Provider store={store}>
+      <App/>
+    </Provider>,
   rootElement
 )
