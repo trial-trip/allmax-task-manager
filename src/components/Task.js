@@ -20,7 +20,7 @@ const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priori
   return(
     <div className={taskStyle}>
       <div className={styles.title} >
-        <span>{id}</span>
+        <span>{title}</span>
         {failedLabel}
       </div>
 
