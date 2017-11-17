@@ -12,7 +12,7 @@ module.exports = {
   }, {
       path: path.join(__dirname, 'docs'),
       filename: 'bundle.js',
-      publicPath: ''
+      publicPath: './'
     }],
   plugins: [
     new CleanWebpackPlugin(['build','docs']),
