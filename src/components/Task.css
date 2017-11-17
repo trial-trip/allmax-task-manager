@@ -1,6 +1,7 @@
 .task {
   padding: .3em 1em .3em 1em;
   border-left: 3px solid rgba(0, 188, 212, 0.64);
+  transition: opacity .3s ease;
 }
 
 .task + .task {
@@ -41,6 +42,7 @@
 .completed {
   opacity: .6;
   border-color: #777777;
+  transition: opacity .3s ease;
 }
 
 .completed * {
@@ -60,16 +62,11 @@
   padding: .5em .7em .3em .5em;
   border-radius: 2px;
   border: 1px solid transparent;
-  transition: color .3s ease, background-color .3s ease;
   color: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.priority > *:hover { /* оставить только для неактивного */
-  transition: color .3s ease, background-color .3s ease;
-  color: rgb(0, 0, 0);
-  background-color: rgba(0, 188, 212, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.priority > *:hover {
+  color: rgba(0, 0, 0, 1);
 }
 
 .ordinary {
@@ -92,8 +89,13 @@
 .failed {
   border-color: #ff2222;
 }
+
 .failed-label {
   background-color: #000;
   color: #fff;
   border-radius: 2px;
+}
+
+.failed-label:hover {
+  color: #fff;
 }
