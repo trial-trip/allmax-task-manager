@@ -3,20 +3,18 @@ import PropTypes from 'prop-types'
 import styles from './App.css'
 
 import Filters from './Filters'
-import TaskList from './TaskList'
+import VisibleTaskList from '../containers/VisibleTaskList'
 
-const App = (state) => (
+const App = () => (
   <div className={styles.app}>
     <h1 className={styles.title}>Tasks</h1>
     <Filters/>
-    <TaskList {...state}/>
+    <VisibleTaskList/>
     <div className={styles.credits}>
       <span className={styles.appName}>Allmax Task Manager</span>
       <span className={styles.author}>by Vladimir Logachev</span>
     </div>
   </div>
 )
-
-App.propTypes = {}
 
 export default App

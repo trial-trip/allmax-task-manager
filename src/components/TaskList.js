@@ -4,11 +4,24 @@ import styles from './TaskList.css'
 
 import Task from './Task'
 
-const TaskList = ({tasks}) => (
+
+
+const TaskList = ({ tasks, onTaskClick}) => {
+  const placeholder = (
+    <div className={styles.placeholder}>
+      <p>No tasks yet, let's write some!</p>
+      <p className={styles.smile}>\ (•◡•) /</p>
+    </div>
+  )
+  return (
   <div>
-    {(tasks.length) ? tasks.map((x, i) => (<Task key={i} {...x} />)) : (<div className={styles.placeholder}><p>No tasks yet, let's write some!</p><p className={styles.smile}>\ (•◡•) /</p></div>)}
+    {
+      (tasks.length) 
+        ? tasks.map((task, i) => (<Task key={i} {...task} onClick={() => onTaskClick(i)}/>)) 
+        : placeholder
+    }
   </div>
-)
+)}
 
 TaskList.propTypes = {
   tasks: PropTypes.arrayOf(
@@ -20,7 +33,8 @@ TaskList.propTypes = {
       deadline: PropTypes.string,
       completionDate: PropTypes.string,
     })
-  ).isRequired
+  ).isRequired,
+  onTaskClick: PropTypes.func.isRequired
 }
 
 export default TaskList
