@@ -2,8 +2,6 @@ import test from 'ava'
 
 import formattedDate from './formattedDate'
 
-// configure({ adapter: new Adapter() })
-
 test('Should format dates in DD.MM.YYYY', t => {
   t.is(formattedDate('2017-11-25T03:13:37.000Z'), '25.11.2017')
   t.is(formattedDate('2000-11-25T03:13:37.000Z'), '25.11.2000')
