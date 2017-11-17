@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Task.css'
+import formattedDate from './../util/formattedDate'
 
 const Task = ({ id, title, description, priority, deadline, completionDate}) => (
   <div className={`${styles.task} ${completionDate ? styles.completed : ''}`}>
@@ -8,8 +9,8 @@ const Task = ({ id, title, description, priority, deadline, completionDate}) => 
 
       <span className={styles.title}>{title}</span>
 
-      {deadline && (<span className={styles.deadline}>Deadline:&nbsp;{deadline}</span>)}
-      {completionDate && (<span className={styles.completionDate}>Completed:&nbsp;{completionDate}</span>)}
+      {deadline && (<span className={styles.deadline}>Deadline:&nbsp;{formattedDate(deadline)}</span>)}
+      {completionDate && (<span className={styles.completionDate}>Completed:&nbsp;{formattedDate(completionDate)}</span>)}
       <span className={styles.completionDate}>id:&nbsp;{id}</span>
       <span className={styles.completionDate}>priority:&nbsp;{priority}</span>
 

@@ -18,8 +18,8 @@ const stateDemo = {
       title: 'Run 10 km',
       description: 'That will make you glad...\n\nMaybe.',
       priority: 1,
-      deadline: '14.11.2017',
-      completionDate: '12.11.2017'
+      deadline: '2017-01-01T03:13:37.000Z',
+      completionDate: '2016-01-01T03:13:37.000Z'
     })
     .map((item, i) => ({ ...item, id: i }))
     .map((item, i) => ((randomBool()) ? { ...item, completionDate: '' } : item))
