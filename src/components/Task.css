@@ -4,6 +4,18 @@
   transition: opacity .3s ease;
 }
 
+.important {
+  border-color: rgba(255, 235, 59, 0.6);
+}
+
+.very-important {
+  border-color: rgba(255, 152, 0, 0.6);
+}
+
+.failed {
+  border-color: #ff2222;
+}
+
 .task + .task {
   margin-top: 1em;
 }
@@ -49,53 +61,36 @@
   color: rgba(0, 0, 0, 0.342);
 }
 
-.priority {
-  color: rgba(41, 29, 29, 0.529);
+.buttons {
   font-size: .8em;
-}
-
-.priority > * + * {
-  margin-left: .5em;
-}
-
-.priority > * {
-  padding: .5em .7em .3em .5em;
-  border-radius: 2px;
-  border: 1px solid transparent;
   color: rgba(0, 0, 0, 0.5);
 }
 
-.priority > *:hover {
-  color: rgba(0, 0, 0, 1);
+.buttons > * + * {
+  margin-left: .5em;
 }
 
-.ordinary {
-  background-color: rgba(85, 85, 85, 0.1);
-}
-
-.important {
-  background-color: rgba(255, 235, 59, 0.5);
-}
-
-.very-important {
-  background-color: rgba(255, 152, 0, 0.5);
-}
-
-.ordinary, .important, .very-important {
-  color: #111;
+.buttons > * {
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: .3s ease;
 }
 
-.failed {
-  border-color: #ff2222;
+.buttons > *:hover {
+  background-color: rgba(255, 235, 59, 0.3);
+  color: 1px solid rgba(0, 0, 0, 1);
+  transition: .3s ease;
+}
+
+.buttons > * , .failed-label {
+  padding: .5em .7em .3em .5em;
+  border-radius: 2px;
 }
 
 .failed-label {
   background-color: #000;
   color: #fff;
   border-radius: 2px;
-}
-
-.failed-label:hover {
-  color: #fff;
+  font-size: .8em;
+  font-weight: 400;
+  margin: 1em;
 }
