@@ -1,9 +1,9 @@
 export const toggleTask = id => {
-  const d = new Date()
+  const now = (new Date()).getTime()
   return {
     type: 'TOGGLE_TASK',
     id,
-    completionDate: d.toISOString()
+    completionDate: now
   }
 }
 

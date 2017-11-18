@@ -5,18 +5,27 @@ import styles from './TaskList.css'
 import Task from './Task'
 
 const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
+
   const placeholder = (
     <div className={styles.placeholder}>
       <p>No tasks yet, let's write some!</p>
       <p className={styles.smile}>\ (•◡•) /</p>
     </div>
   )
-  const listOfTasks = tasks.map((task, i) => (
+
+  const sortByPriority = (a, b) => {
+    const diffPriority = b.priority - a.priority
+    const diffId = a.id - b.id
+    return diffPriority || diffId
+  }
+
+  const listOfTasks = tasks.sort(sortByPriority).map((task, i) => (
     <Task key={i} {...task} 
       onToggleCompleted={() => onTaskClick(task.id)}
       onDeleteClick={() => onTaskDelete(task.id)}
       />
   ))
+
   return (
   <div>
     { tasks.length ? listOfTasks : placeholder }
@@ -30,8 +39,8 @@ TaskList.propTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string,
       priority: PropTypes.number.isRequired,
-      deadline: PropTypes.string,
-      completionDate: PropTypes.string,
+      deadline: PropTypes.any,
+      completionDate: PropTypes.any,
     })
   ).isRequired,
   onTaskClick: PropTypes.func.isRequired,

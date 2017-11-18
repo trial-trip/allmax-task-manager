@@ -5,7 +5,8 @@ import formattedDate from './../util/formattedDate'
 
 const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
   const completed = (completionDate) ? true : false
-  const failed = (deadline) ? (completed ? (Date.parse(completionDate) > Date.parse(deadline)) : (Date.now() > Date.parse(deadline))) : false
+  const now = (new Date()).getTime()
+  const failed = (deadline) ? (completed ? (completionDate > deadline) : (now > deadline)) : false
 
   const completionStyle = completionDate ? styles.completed : ''
   let priorityStyle
@@ -20,7 +21,7 @@ const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priori
   return(
     <div className={taskStyle}>
       <div className={styles.title} >
-        <span>{title}</span>
+        <span>{title} - {id}</span>
         {failedLabel}
       </div>
 
@@ -52,8 +53,8 @@ Task.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   priority: PropTypes.number.isRequired,
-  deadline: PropTypes.string,
-  completionDate: PropTypes.string,
+  deadline: PropTypes.any,
+  completionDate: PropTypes.any,
 }
 
 export default Task

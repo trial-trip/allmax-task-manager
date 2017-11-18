@@ -1,6 +1,6 @@
-// accepts an ISO string and returns dd.mm.yyyy
-const formattedDate = (dateIsoString) => {
-  const tempDate = new Date(Date.parse(dateIsoString))
+// accepts an Int and returns dd.mm.yyyy
+const formattedDate = (n) => {
+  const tempDate = new Date(n)
   let dd = tempDate.getDate()
   if (dd < 10) {
     dd = '0' + dd
