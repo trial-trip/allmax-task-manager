@@ -14,7 +14,9 @@ const demoTask = {
   description: 'That will make you glad\n\n...\nMaybe))',
   priority: 1,
   deadline: '2017-11-25T03:13:37.000Z',
-  completionDate: '2017-11-25T03:13:37.000Z'
+  completionDate: '2017-11-25T03:13:37.000Z',
+  onToggleCompleted: x => x,
+  onDeleteClick: x => x
 }
 
 test('Should show title', t => {
