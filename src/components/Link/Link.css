@@ -1,0 +1,8 @@
+.link {
+  color: rgba(0, 108, 121, 0.97);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgba(0, 162, 181, 0.97);
+}
