@@ -4,7 +4,7 @@ import { shallow, configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Task from './Task'
-import format_dd_mm_yyyy from '../util/format_dd_mm_yyyy'
+import format_dd_mm_yyyy from '../../util/format_dd_mm_yyyy'
 
 configure({ adapter: new Adapter() })
 
