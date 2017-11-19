@@ -22,9 +22,9 @@ export const setPriorityFilter = filter => {
   }
 }
 
-export const addTask = ({ id, title, description, priority, deadline}) => {
+export const addTask = ({ type, id, title, description, priority, deadline}) => {
   return {
-    type: 'ADD_TASK',
+    type: type || 'ADD_TASK',
     id: id,
     title: title,
     description: description,
