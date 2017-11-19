@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './TaskList.css'
 
 import FilterList from '../FilterList'
-
+import format_dd_mm_yyyy from '../../util/format_dd_mm_yyyy'
 import GroupOfTasks from '../GroupOfTasks'
 
 
@@ -47,7 +47,7 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
     return isFailed
   }
 
-  const isTaskForToday = (t) => (now >= t.deadline)
+  const isTaskForToday = (t) => (format_dd_mm_yyyy(now) === format_dd_mm_yyyy(t.deadline))
 
   const groupTasksByDeadline = (acc, t) => {
     if (t.deadline in acc) {
