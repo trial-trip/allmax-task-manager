@@ -1,5 +1,4 @@
 import React from 'react'
-import DatePicker from 'react-datepicker'
 
 class TaskEditor extends React.Component {
   constructor(props) {
