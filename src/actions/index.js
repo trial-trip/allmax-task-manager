@@ -15,3 +15,9 @@ export const deleteTask = id => {
   }
 }
 
+export const setPriorityFilter = filter => {
+  return {
+    type: 'SET_PRIORITY_FILTER',
+    filter
+  }
+}
