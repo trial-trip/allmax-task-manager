@@ -66,40 +66,46 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
   const openTasksWithoutDeadline = nonFailedIncompleteTasks.filter(t => (!hasDeadline(t)))
 
   const tasksForToday = openTasksWithDeadline.filter(isTaskForToday)
-  const tasksForOtherDays = openTasksWithDeadline.filter(t => (!isTaskForToday(t)))
 
-  const set = tasksForOtherDays.reduce(groupTasksByDeadline, {})
-  console.log(set)
-
+  const tasksForOther = openTasksWithDeadline.filter(t => (!isTaskForToday(t)))
+  const set = tasksForOther.reduce(groupTasksByDeadline, {}) 
+  const tasksForOtherDays = Object.keys(set).map(k => ({ deadline: k, tasks: set[k]})).sort((a,b) => (a.deadline - b.deadline))
+  console.log(format_dd_mm_yyyy(tasksForOtherDays[0].deadline))
 
   return (
   <div>
     <FilterList/>
     {(!tasks.length) ? placeholder : ''}
     <GroupOfTasks 
-      heading="Tasks with failed deadline"
       tasks={failedIncompleteTasks} 
       onTaskClick={onTaskClick} 
       onTaskDelete={onTaskDelete}
       sortWith={sortByPriority}/>
+
     <GroupOfTasks
       heading="Today"
       tasks={tasksForToday}
       onTaskClick={onTaskClick}
       onTaskDelete={onTaskDelete}
       sortWith={sortByPriority} />
+
     <GroupOfTasks
       heading="Tasks without deadline"
       tasks={openTasksWithoutDeadline}
       onTaskClick={onTaskClick}
       onTaskDelete={onTaskDelete}
       sortWith={sortByPriority} />
-    <GroupOfTasks
-      heading="Other days"
-        tasks={tasksForOtherDays}
-      onTaskClick={onTaskClick}
-      onTaskDelete={onTaskDelete}
-      sortWith={sortByPriority} />
+
+    {tasksForOtherDays.map((g, i) => (
+      <GroupOfTasks
+        heading={`${format_dd_mm_yyyy(g.deadline)}`}
+        tasks={g.tasks}
+        key={i} 
+        onTaskClick={onTaskClick}
+        onTaskDelete={onTaskDelete}
+        sortWith={sortByPriority} />
+    ))}
+
     <GroupOfTasks
       heading="Completed tasks"
       tasks={completeTasks}

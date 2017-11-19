@@ -17,6 +17,4 @@ const format_dd_mm_yyyy = (n) => {
   return answer
 }
 
-
-
 export default format_dd_mm_yyyy
