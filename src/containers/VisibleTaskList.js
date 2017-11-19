@@ -8,7 +8,7 @@ const getVisibleTasks = (tasks, filter) => {
       return tasks
     case 'SHOW_ORDINARY':
       return tasks.filter(t => (t.priority === 0))
-    case 'SHOW_ORDINARY':
+    case 'SHOW_IMPORTANT':
       return tasks.filter(t => (t.priority === 1))
     case 'SHOW_VERY_IMPORTANT':
       return tasks.filter(t => (t.priority === 2))
