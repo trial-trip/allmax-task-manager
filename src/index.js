@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import reducers from './reducers'
 
 // router 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 // compomemts
 import App from './components/App'
