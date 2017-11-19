@@ -70,7 +70,6 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
   const tasksForOther = openTasksWithDeadline.filter(t => (!isTaskForToday(t)))
   const set = tasksForOther.reduce(groupTasksByDeadline, {}) 
   const tasksForOtherDays = Object.keys(set).map(k => ({ deadline: k, tasks: set[k]})).sort((a,b) => (a.deadline - b.deadline))
-  console.log(format_dd_mm_yyyy(tasksForOtherDays[0].deadline))
 
   return (
   <div>
@@ -98,7 +97,7 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
 
     {tasksForOtherDays.map((g, i) => (
       <GroupOfTasks
-        heading={`${format_dd_mm_yyyy(g.deadline)}`}
+        heading={format_dd_mm_yyyy(+g.deadline)}
         tasks={g.tasks}
         key={i} 
         onTaskClick={onTaskClick}

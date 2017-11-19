@@ -31,8 +31,3 @@ test('Should have same number of Tasks as passed', t => {
   t.is(w60.children().length, 60)
   t.is(w1.children().length, 1)
 })
-
-test.skip('Should display placeholder if no Tasks passed', t => {
-  const wrapper = shallow(<TaskList tasks={[]} />)
-  t.is(wrapper.text().includes('No tasks'), true)
-})

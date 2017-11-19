@@ -40,19 +40,3 @@ test('Should show deadline, if was set', t => {
   const wrapper = shallow(<Task {...demoTask} />)
   t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.deadline)), true)
 })
-
-test.skip('Should be marked as completed if completion date was set', t => {
-  // check nested elements later
-  const wrapper = shallow(<Task {...demoTask} />)
-  t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.completionDate)), true)
-})
-
-test.skip('Should not be marked as completed if completion date was not set', t => {
-  // check nested elements later
-  const wrapper = shallow(<Task {...demoTask} />)
-  t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.completionDate)), true)
-})
-
-test.skip('Should display correct priority', t => {
-  // check nested elements later
-})
