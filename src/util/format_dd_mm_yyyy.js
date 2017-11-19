@@ -1,5 +1,5 @@
 // accepts an Int and returns dd.mm.yyyy
-const formattedDate = (n) => {
+const format_dd_mm_yyyy = (n) => {
   const tempDate = new Date(n)
   let dd = tempDate.getDate()
   if (dd < 10) {
@@ -17,4 +17,6 @@ const formattedDate = (n) => {
   return answer
 }
 
-export default formattedDate
+
+
+export default format_dd_mm_yyyy

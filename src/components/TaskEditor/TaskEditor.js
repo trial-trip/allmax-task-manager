@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import styles from './TaskEditor.css'
 import btn from '../../util/btn.css'
+import format_yyyy_mm_dd from '../../util/format_yyyy_mm_dd'
 
 class TaskEditor extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class TaskEditor extends React.Component {
         title: task.title,
         description: task.description,
         priority: `${task.priority}`,
-        deadline: +task.deadline || undefined,
+        deadline: format_yyyy_mm_dd(+task.deadline) || undefined,
       }
     } else {
       this.state = {
@@ -25,7 +26,7 @@ class TaskEditor extends React.Component {
         title: '',
         description: '',
         priority: "0",
-        deadline: 'DATE_UNSET',
+        deadline: undefined,
       }
     }
     this.handleChange = this.handleChange.bind(this)
@@ -34,7 +35,6 @@ class TaskEditor extends React.Component {
 
   handleChange(event) {
     const target = event.target
-    console.log(target.name, target.value)
     this.setState({
       [target.name]: target.value
     })
@@ -42,12 +42,14 @@ class TaskEditor extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.onSubmitClick(this.state)
+    this.props.onSubmitClick({
+      ...this.state,
+      deadline: Date.parse(this.state.deadline)
+    })
     this.props.history.push('/')
   }
 
   render() {
-    console.log(this.state.priority)
     return (
       <form onSubmit={this.handleSubmit} >
         <div className={styles.block}>

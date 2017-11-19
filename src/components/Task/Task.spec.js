@@ -4,7 +4,7 @@ import { shallow, configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Task from './Task'
-import formattedDate from '../util/formattedDate'
+import format_dd_mm_yyyy from '../util/format_dd_mm_yyyy'
 
 configure({ adapter: new Adapter() })
 
@@ -33,24 +33,24 @@ test('Should contain aech line of description', t => {
 
 test('Should show formatted completion date, if was set', t => {
   const wrapper = shallow(<Task {...demoTask} />)
-  t.is(wrapper.html().includes(formattedDate(demoTask.completionDate)), true)
+  t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.completionDate)), true)
 })
 
 test('Should show deadline, if was set', t => {
   const wrapper = shallow(<Task {...demoTask} />)
-  t.is(wrapper.html().includes(formattedDate(demoTask.deadline)), true)
+  t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.deadline)), true)
 })
 
 test.skip('Should be marked as completed if completion date was set', t => {
   // check nested elements later
   const wrapper = shallow(<Task {...demoTask} />)
-  t.is(wrapper.html().includes(formattedDate(demoTask.completionDate)), true)
+  t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.completionDate)), true)
 })
 
 test.skip('Should not be marked as completed if completion date was not set', t => {
   // check nested elements later
   const wrapper = shallow(<Task {...demoTask} />)
-  t.is(wrapper.html().includes(formattedDate(demoTask.completionDate)), true)
+  t.is(wrapper.html().includes(format_dd_mm_yyyy(demoTask.completionDate)), true)
 })
 
 test.skip('Should display correct priority', t => {

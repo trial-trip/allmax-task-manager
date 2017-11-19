@@ -3,8 +3,7 @@ let stateOption
 try {
   const str = localStorage.getItem('tm_data');
   stateOption = JSON.parse(str);
-} catch (err) {
-  console.error(err);
+} catch () {
 }
 
 // Alternative solution to have state is to populate state with demo data.

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Task.css'
 import btn from '../../util/btn.css'
-import formattedDate from '../../util/formattedDate'
+import format_dd_mm_yyyy from '../../util/format_dd_mm_yyyy'
 
 const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
   const completed = (completionDate !== 'DATE_UNSET') ? true : false
@@ -33,8 +33,8 @@ const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priori
       </div>
 
       <div className={styles.meta}>
-        {(deadline !== 'DATE_UNSET') && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)}</span>)}
-        {completed && (<span className={styles.completionDate}>Completed: {formattedDate(completionDate)}</span>)}
+        {(deadline !== 'DATE_UNSET') && (<span className={styles.deadline}>Deadline: {format_dd_mm_yyyy(deadline)}</span>)}
+        {completed && (<span className={styles.completionDate}>Completed: {format_dd_mm_yyyy(completionDate)}</span>)}
       </div>
       
       <div>
