@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 class TaskEditor extends React.Component {
   constructor(props) {
@@ -10,8 +11,6 @@ class TaskEditor extends React.Component {
       priority: props.priority || 0,
       deadline: props.deadline || 'DATE_UNSET',
     }
-    console.log('props:')
-    console.log(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -26,9 +25,8 @@ class TaskEditor extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('state:')
-    console.log(this.state)
     this.props.onSubmitClick(this.state)
+    this.props.history.push('/')
   }
 
   render() {
@@ -75,4 +73,4 @@ class TaskEditor extends React.Component {
   }
 }
 
-export default TaskEditor
+export default withRouter(TaskEditor)

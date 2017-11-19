@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
+
 import styles from './TaskList.css'
 
+import FilterList from '../FilterList'
 import Task from '../Task'
 
 const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
 
   const placeholder = (
     <div className={styles.placeholder}>
-      <p>No tasks yet, let's write some!</p>
+      <p>No tasks here, let's write some!</p>
       <p className={styles.smile}>\ (•◡•) /</p>
     </div>
   )
@@ -28,6 +31,8 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
 
   return (
   <div>
+    <FilterList/>
+      <Link to="/add" >Add task</Link>
     { tasks.length ? listOfTasks : placeholder }
   </div>
 )}

@@ -7,6 +7,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
 
+// router 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 // compomemts
 import App from './components/App'
 import initialState from './util/initialState'
@@ -25,7 +28,9 @@ document.body.appendChild(rootElement)
 
 render(
     <Provider store={store}>
-      <App/>
+      <Router>
+        <App/>
+      </Router>
     </Provider>,
   rootElement
 )
