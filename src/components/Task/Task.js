@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 import styles from './Task.css'
-import formattedDate from '../../util/formattedDate'
-
 import btn from '../../util/btn.css'
+import formattedDate from '../../util/formattedDate'
 
 const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
   const completed = (completionDate !== 'DATE_UNSET') ? true : false
@@ -25,7 +24,7 @@ const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priori
   return(
     <div className={taskStyle}>
       <div className={styles.title} >
-        <span>{title} - {id}</span>
+        <span>{title}</span>
         {failedLabel}
       </div>
 

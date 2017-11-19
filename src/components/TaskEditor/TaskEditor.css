@@ -1,0 +1,47 @@
+.in {
+  font-size: 1em;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.01);
+  padding: .5em .7em .3em .5em;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: .3s ease;
+  display: block;
+  width: 100%;
+}
+
+.block + .block {
+  margin-top: 1em;
+}
+
+.block > * + * {
+  margin-left: 1em;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + span {
+  font-size: .9em;
+  color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.01);
+  padding: .5em .7em .3em .5em;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: .3s ease;
+}
+  
+input[type="checkbox"]:checked + span {
+  background-color: rgba(0, 188, 212, 0.64);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+input[type="checkbox"]:checked + .important {
+  background-color: rgba(255, 235, 59, 0.6);
+}
+
+input[type="checkbox"]:checked + .very-important {
+  background-color: rgba(255, 152, 0, 0.6);
+}
