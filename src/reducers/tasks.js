@@ -13,6 +13,15 @@ const tasks = (state = [], action) => {
           priority: action.priority,
         }
       ]
+    case 'EDIT_TASK':
+      return state.map(task =>
+        (task.id === action.id)
+          ? {
+            ...task,
+            ...action
+          }
+          : task
+      )
     case 'TOGGLE_TASK':
       return state.map(task =>
         (task.id === action.id)
