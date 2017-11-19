@@ -61,32 +61,8 @@
   color: rgba(0, 0, 0, 0.342);
 }
 
-.buttons {
-  font-size: .8em;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.buttons > * + * {
-  margin-left: .5em;
-}
-
-.buttons > * {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: .3s ease;
-}
-
-.buttons > *:hover {
-  background-color: rgba(255, 235, 59, 0.3);
-  color: 1px solid rgba(0, 0, 0, 1);
-  transition: .3s ease;
-}
-
-.buttons > * , .failed-label {
-  padding: .5em .7em .3em .5em;
-  border-radius: 2px;
-}
-
 .failed-label {
+  padding: .5em .7em .3em .5em;
   background-color: #000;
   color: #fff;
   border-radius: 2px;

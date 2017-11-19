@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
+
 import styles from './Task.css'
 import formattedDate from '../../util/formattedDate'
+
+import btn from '../../util/btn.css'
 
 const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
   const completed = (completionDate !== 'DATE_UNSET') ? true : false
@@ -33,13 +37,11 @@ const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priori
         {(deadline !== 'DATE_UNSET') && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)}</span>)}
         {completed && (<span className={styles.completionDate}>Completed: {formattedDate(completionDate)}</span>)}
       </div>
-
-      <div className={styles.meta}>
-        <span className={styles.buttons}>
-          <a className={styles.ordinary} onClick={onToggleCompleted}>{completed ? 'Work some more' : 'Done'}</a>
-          {!completed ? (<a className={styles.ordinary}>Edit</a>) : ''}
-          <a className={styles.ordinary} onClick={onDeleteClick}>Delete</a>
-        </span>
+      
+      <div>
+        <a className={btn.btn} onClick={onToggleCompleted}>{completed ? 'Work some more' : 'Done'}</a>
+        {!completed ? (<Link className={btn.btn}to={`/edit/${id}`}>Edit</Link>) : ''}
+        <a className={btn.btn}  onClick={onDeleteClick}>Delete</a>
       </div> 
 
     </div>
