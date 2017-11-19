@@ -2,6 +2,7 @@
   padding: .3em 1em .3em 1em;
   border-left: 3px solid rgba(0, 188, 212, 0.64);
   transition: opacity .3s ease;
+  margin-left: 1.5em;
 }
 
 .important {
@@ -53,13 +54,7 @@
 }
 
 .completed {
-  opacity: .6;
   border-color: #777777;
-  transition: opacity .3s ease;
-}
-
-.completed * {
-  color: rgba(0, 0, 0, 0.342);
 }
 
 .failed-label {
