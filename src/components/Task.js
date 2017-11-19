@@ -4,11 +4,11 @@ import styles from './Task.css'
 import formattedDate from './../util/formattedDate'
 
 const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
-  const completed = (completionDate) ? true : false
+  const completed = (completionDate !== 'DATE_UNSET') ? true : false
   const now = (new Date()).getTime()
-  const failed = (deadline) ? (completed ? (completionDate > deadline) : (now > deadline)) : false
+  const failed = (deadline !== 'DATE_UNSET') ? (completed ? (completionDate > deadline) : (now > deadline)) : false
 
-  const completionStyle = completionDate ? styles.completed : ''
+  const completionStyle = completed ? styles.completed : ''
   let priorityStyle
   if (!completed && priority === 1) { priorityStyle = styles.important}
   if (!completed && priority === 2) { priorityStyle = styles.veryImportant}
@@ -30,7 +30,7 @@ const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priori
       </div>
 
       <div className={styles.meta}>
-        {deadline && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)}</span>)}
+        {(deadline !== 'DATE_UNSET') && (<span className={styles.deadline}>Deadline: {formattedDate(deadline)}</span>)}
         {completed && (<span className={styles.completionDate}>Completed: {formattedDate(completionDate)}</span>)}
       </div>
 

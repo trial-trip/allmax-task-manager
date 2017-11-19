@@ -18,7 +18,7 @@ const tasks = (state = [], action) => {
         (task.id === action.id)
           ? { 
             ...task, 
-            completionDate: (task.completionDate) ? '' : action.completionDate
+            completionDate: (task.completionDate) ? 'DATE_UNSET' : action.completionDate
           }
           : task
       )
