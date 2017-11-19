@@ -9,7 +9,7 @@ const tasks = (state = [], action) => {
           title: action.title,
           description: action.description,
           deadline: action.deadline,
-          completionDate: '',
+          completionDate: 'DATE_UNSET',
           priority: 0,
         }
       ]
@@ -18,7 +18,7 @@ const tasks = (state = [], action) => {
         (task.id === action.id)
           ? { 
             ...task, 
-            completionDate: (task.completionDate) ? 'DATE_UNSET' : action.completionDate
+            completionDate: (task.completionDate !== 'DATE_UNSET') ? 'DATE_UNSET' : action.completionDate
           }
           : task
       )
