@@ -1,4 +1,4 @@
 
-import TaskList from './TaskList';
+import TaskList from './TaskList'
 
-export default TaskList;
+export default TaskList

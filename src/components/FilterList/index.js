@@ -1,4 +1,4 @@
 
-import FilterList from './FilterList';
+import FilterList from './FilterList'
 
-export default FilterList;
+export default FilterList
