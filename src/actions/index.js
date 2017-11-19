@@ -8,7 +8,7 @@ export const toggleTask = id => {
 }
 
 export const deleteTask = id => {
-  console.log('DELETE_TASK', id)
+
   return {
     type: 'DELETE_TASK',
     id
@@ -19,5 +19,17 @@ export const setPriorityFilter = filter => {
   return {
     type: 'SET_PRIORITY_FILTER',
     filter
+  }
+}
+
+export const addTask = ({ id, title, description, priority, deadline}) => {
+  return {
+    type: 'ADD_TASK',
+    id: id,
+    title: title,
+    description: description,
+    priority: +priority || 0,
+    deadline: deadline || 'DATE_UNSET',
+    completionDate: 'DATE_UNSET',
   }
 }

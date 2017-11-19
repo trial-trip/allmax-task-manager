@@ -1,5 +1,5 @@
 const tasks = (state = [], action) => {
-  console.log(state, action.type, action.id)
+  console.log(action.type, action)
   switch (action.type) {
     case 'ADD_TASK':
       return [
@@ -10,7 +10,7 @@ const tasks = (state = [], action) => {
           description: action.description,
           deadline: action.deadline,
           completionDate: 'DATE_UNSET',
-          priority: 0,
+          priority: action.priority,
         }
       ]
     case 'TOGGLE_TASK':
