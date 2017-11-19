@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import styles from './TaskEditor.css'
 import btn from '../../util/btn.css'
 import format_yyyy_mm_dd from '../../util/format_yyyy_mm_dd'
@@ -98,6 +98,7 @@ class TaskEditor extends React.Component {
             type="submit" 
             className={btn.btn}
             value="Save" />
+          <Link className={btn.btn} to={'/'}>Cancel</Link>
         </div>
       </form>
     )

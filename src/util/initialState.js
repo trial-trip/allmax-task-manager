@@ -19,7 +19,7 @@ const stateDemoTemplate = {
   tasks: Array(17)
     .fill({
       id: 0,
-      title: 'Run 10 km',
+      title: 'Do some work',
       description: 'That will make you glad...\n\nMaybe.',
       priority: 1,
       deadline: 'DATE_UNSET',
