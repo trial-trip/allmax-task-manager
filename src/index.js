@@ -28,7 +28,7 @@ document.body.appendChild(rootElement)
 
 render(
     <Provider store={store}>
-      <Router basename="/allmax-task-manager" >
+      <Router>
         <App/>
       </Router>
     </Provider>,
