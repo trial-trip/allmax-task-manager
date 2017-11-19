@@ -1,16 +1,18 @@
 // react
 import React from 'react'
 import { render } from 'react-dom'
-import reset from './reset.css'
-
-// compomemts
-import App from './components/App'
-import initialState from './initialState'
 
 // redux 
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
+
+// compomemts
+import App from './components/App'
+import initialState from './util/initialState'
+
+// reset styles
+import reset from './util/reset.css'
 
 const store = createStore(reducers, initialState)
 
