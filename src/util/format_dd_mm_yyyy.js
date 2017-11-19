@@ -1,6 +1,6 @@
 // accepts an Int and returns dd.mm.yyyy
 const format_dd_mm_yyyy = (n) => {
-  const tempDate = new Date(n)
+  const tempDate = new Date(+n)
   let dd = tempDate.getDate()
   if (dd < 10) {
     dd = '0' + dd
