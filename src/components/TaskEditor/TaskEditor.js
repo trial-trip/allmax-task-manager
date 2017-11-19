@@ -4,12 +4,24 @@ import { withRouter } from 'react-router-dom'
 class TaskEditor extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      id: props.id || props.newTaskId,
-      title: props.title || '',
-      description: props.description || '',
-      priority: props.priority || 0,
-      deadline: props.deadline || 'DATE_UNSET',
+    const task = props.tasks.find(t => t.id === +props.match.params.id)
+
+    if (task) {
+      this.state = {
+        id: task.id,
+        title: task.title,
+        description: task.description,
+        priority: task.priority,
+        deadline: task.deadline,
+      }
+    } else {
+      this.state = {
+        id: props.newTaskId,
+        title: '',
+        description: '',
+        priority: 0,
+        deadline: 'DATE_UNSET',
+      }
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
