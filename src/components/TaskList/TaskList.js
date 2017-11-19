@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './TaskList.css'
 
-import Task from './Task'
+import Task from '../Task'
 
 const TaskList = ({ tasks, onTaskClick, onTaskDelete}) => {
 

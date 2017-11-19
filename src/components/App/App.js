@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './App.css'
 
-import Filters from './Filters'
-import VisibleTaskList from '../containers/VisibleTaskList'
+import FilterList from '../FilterList'
+import VisibleTaskList from '../../containers/VisibleTaskList'
 
 const App = () => (
   <div className={styles.app}>
     <h1 className={styles.title}>Tasks</h1>
-    <Filters/>
+    <FilterList/>
     <VisibleTaskList/>
     <div className={styles.credits}>
       <span className={styles.appName}>Allmax Task Manager</span>

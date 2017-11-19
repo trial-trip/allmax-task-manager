@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Task.css'
-import formattedDate from './../util/formattedDate'
+import formattedDate from '../../util/formattedDate'
 
 const Task = ({ onToggleCompleted, onDeleteClick, id, title, description, priority, deadline, completionDate}) => {
   const completed = (completionDate !== 'DATE_UNSET') ? true : false

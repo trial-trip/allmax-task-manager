@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './Filters.css'
-import FilterLink from '../containers/FilterLink'
+import styles from './FilterList.css'
+import FilterLink from '../../containers/FilterLink'
 
 const FilterList = () => (
   <div className={styles.filters}>
