@@ -10,6 +10,8 @@ This repo demonstrates the process of building a React/Redux app.
 - `npm test` - tests
 - `npm start` - starts dev server
 - `npm run build`
-  - cleans `/build` and `/docs` directories
+  - cleans `/build` directory
   - builds for production into `/build` (ignored by Git)
+- `npm run publish`
+  - cleans `/docs` directory
   - builds for production into `/docs` (used by GitHub Pages, has different path)

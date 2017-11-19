@@ -4,17 +4,17 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const basicConfig = require('./webpack.config.js')
 
-const buildConfig = {
+const githubPagesConfig = {
   ...basicConfig,
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'docs'),
     filename: 'bundle.js',
     publicPath: ''
   },
   plugins: [
     ...basicConfig.plugins,
-    new CleanWebpackPlugin(['build']),
+    new CleanWebpackPlugin(['docs']),
   ],
 }
 
-module.exports = buildConfig
+module.exports = githubPagesConfig
