@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --open",
     "build": "webpack -p --config=webpack.build.config.js",
     "publish": "webpack -p --config=webpack.publish.config.js",
-    "test": "ava --watch"
+    "test": "ava --watch",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
