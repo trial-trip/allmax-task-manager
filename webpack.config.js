@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Allmax Task Manager'
+      title: 'TEST DEV'
     })
   ],
   module: {
