@@ -8,7 +8,6 @@
     "build": "webpack -p --config=webpack.build.config.js",
     "publish": "webpack -p --config=webpack.publish.config.js",
     "test": "ava --watch",
-    "postinstall": "webpack -p --config=webpack.build.config.js"
   },
   "repository": {
     "type": "git",
