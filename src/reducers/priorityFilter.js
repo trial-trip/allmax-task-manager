@@ -1,10 +1,10 @@
 const priorityFilter = (state = 'SHOW_ALL', action) => {
   switch (action.type) {
     case 'SET_PRIORITY_FILTER':
-      return action.filter
+      return action.filter;
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default priorityFilter
+export default priorityFilter;

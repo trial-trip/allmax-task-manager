@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/", // path to output directory
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "target": "es5",
+    // "lib": ["es2015"],
+    "allowJs": true // allow a partial TypeScript and JavaScript codebase
+  },
+  "include": ["./src/"]
+}

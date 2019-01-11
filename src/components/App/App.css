@@ -2,17 +2,17 @@
   font-family: Helvetica, sans-serif;
   max-width: 700px;
   margin: 0 auto;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .title {
   font-weight: 700;
   font-size: 4em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   margin-top: 1em;
 }
 
-::selection { 
+::selection {
   color: #111;
   background: rgba(255, 225, 0, 0.71);
   text-shadow: none;
@@ -35,5 +35,5 @@
 
 .author {
   color: rgb(133, 133, 133);
-  font-size: .8em;
+  font-size: 0.8em;
 }

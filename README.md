@@ -1,6 +1,6 @@
 # Allmax Task Manager
 
-This repo demonstrates the process of building a React/Redux app. 
+This repo demonstrates the process of building a React/Redux app.
 
 [See live demo](https://vladimirlogachev.github.io/allmax-task-manager/).
 

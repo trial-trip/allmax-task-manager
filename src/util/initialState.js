@@ -1,40 +1,40 @@
 // Try to read state from local storage
-let stateOption
+let stateOption;
 try {
   const str = localStorage.getItem('tm_data');
   stateOption = JSON.parse(str);
-} catch (e) {
-}
+} catch (e) {}
 
 // Alternative solution to have state is to populate state with demo data.
-const randomBool = () => Math.random() < .5
-const randomPriority = () => Math.floor(Math.random() * 3)
+const randomBool = () => Math.random() < 0.5;
+const randomPriority = () => Math.floor(Math.random() * 3);
 
-const yearDuration = (365 * 24 * 3600 * 1000)
-const startingDate = Date.parse('2017.09.01')
-const randomDate = () => Math.floor(Math.random() * yearDuration) + startingDate  
+const yearDuration = 365 * 24 * 3600 * 1000;
+const startingDate = Date.parse('2017.09.01');
+const randomDate = () => Math.floor(Math.random() * yearDuration) + startingDate;
 
 const stateDemoTemplate = {
   priorityFilter: 'SHOW_ALL',
   tasks: Array(17)
-    .fill({
+    .fill()
+    .map(() => ({
       id: 0,
       title: 'Do some work',
       description: 'That will make you glad...\n\nMaybe.',
       priority: 1,
       deadline: 'DATE_UNSET',
       completionDate: 'DATE_UNSET'
-    })
+    }))
     .map((item, i) => ({ ...item, id: i }))
     .map((item, i) => ({ ...item, completionDate: randomBool() ? randomDate() : 'DATE_UNSET' }))
     .map((item, i) => ({ ...item, deadline: randomBool() ? randomDate() : 'DATE_UNSET' }))
-    .map((item, i) => ((randomBool()) ? { ...item, description: '' } : item))
+    .map((item, i) => (randomBool() ? { ...item, description: '' } : item))
     .map((item, i) => ({ ...item, priority: randomPriority() }))
-}
-const stateDemo = { ...stateDemoTemplate, newTaskId: stateDemoTemplate.tasks.length }
+};
+const stateDemo = { ...stateDemoTemplate, newTaskId: stateDemoTemplate.tasks.length };
 
-// So, state will be populated with demo 
+// So, state will be populated with demo
 // if there were no exceptions during reading Local Storage
-const initialState = stateOption || stateDemo
+const initialState = stateOption || stateDemo;
 
-export default initialState
+export default initialState;
