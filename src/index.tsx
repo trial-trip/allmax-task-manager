@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore } from 'redux';
 import { App } from './components/App/App';
 import { reducers } from './reducers';
-import initialState from './util/initialState';
+import { initialState } from './util/initialState';
 
 const store = createStore(reducers, initialState);
 
