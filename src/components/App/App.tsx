@@ -13,6 +13,7 @@ export const App = () => (
       <Route exact path="/edit" component={EditorContainer} />
       <Route path="/edit/:id" component={EditorContainer} />
       <Route exact path="/" component={VisibleTaskList} />
+      <Route component={VisibleTaskList} />
     </Switch>
 
     <div className="credits">
